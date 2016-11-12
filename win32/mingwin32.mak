@@ -21,10 +21,10 @@ PDCURSES_WIN_H	= $(osdir)/pdcwin.h
 CC		= gcc
 
 ifeq ($(DEBUG),Y)
-	CFLAGS  = -g -Wall -DPDCDEBUG
+	CFLAGS  = -g -Wall -DPDCDEBUG -static-libgcc
 	LDFLAGS = -g
 else
-	CFLAGS  = -O2 -Wall
+	CFLAGS  = -O2 -Wall -static-libgcc
 	LDFLAGS =
 endif
 

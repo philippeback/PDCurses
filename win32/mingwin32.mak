@@ -30,8 +30,8 @@ endif
 
 CFLAGS += -I$(PDCURSES_SRCDIR)
 
-BASEDEF		= $(PDCURSES_SRCDIR)\exp-base.def
-WIDEDEF		= $(PDCURSES_SRCDIR)\exp-wide.def
+BASEDEF		= $(PDCURSES_SRCDIR)/exp-base.def
+WIDEDEF		= $(PDCURSES_SRCDIR)/exp-wide.def
 
 DEFDEPS		= $(BASEDEF)
 
@@ -80,9 +80,9 @@ demos:	$(DEMOS)
 $(DEFFILE): $(DEFDEPS)
 	echo LIBRARY pdcurses > $@
 	echo EXPORTS >> $@
-	type $(BASEDEF) >> $@
+	cat $(BASEDEF) >> $@
 ifeq ($(WIDE),Y)
-	type $(WIDEDEF) >> $@
+	cat $(WIDEDEF) >> $@
 endif
 
 $(LIBCURSES) : $(LIBDEPS)
